@@ -1,0 +1,82 @@
+<script>if(localStorage.getItem('city') === null)window.location.href = 'index.html';</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title class="title"></title>
+    <link rel="stylesheet" href="/css/weather.css">
+    <link rel="stylesheet" href="/bootstrap-5.0.1-dist/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Changa+One&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" class="link-favicon">
+</head>
+<body>
+    
+
+    <div class="container-principal">
+        <section id="left">
+            <div id="search-container">
+                <span id='btn-close'>
+                    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+                </span>
+                <form id="search-form" class="d-flex mb-3" autocomplete="off">
+                    <input type="text" class="me-2" id="city-search-input" placeholder="Search location">
+                    <button type="submit">Search</button>
+                </form>
+                <div id="div-alerts">Type a location to search</div>
+
+                <div id="London-recomendation" class="cities-recomendation mt-4">
+                    <p>London</p>
+                    <span>></span>
+                </div>
+
+                <div id="Barcelona-recomendation" class="cities-recomendation">
+                    <p>Barcelona</p>
+                    <span>></span>
+                </div>
+
+                <div id="BuenosAires-recomendation" class="cities-recomendation">
+                    <p>Buenos Aires</p>
+                    <span>></span>
+                </div>
+                
+    
+                <button id="change-default-city">Change default city</button>
+                
+            </div> 
+            <button id="search-more" class="mt-4 p-2">Search for places</button>
+            <div id="weather-section">
+                
+            </div>
+        </section>
+        
+        <div>
+            <div class="temperature-unit d-flex mt-5">
+                <button class="unit" id="celsius" value="metric">°C</button>
+                <button class="unit" id="fahrenheit" value="imperial">°F</button>
+            </div>
+
+                <h3 class="text-center text-white highlights-title">Today's Highlights</h3>
+                <div id="highlights-section">
+                      
+                </div>
+             
+                <footer> 
+                    <h3> Created by Franco Juri with ❤ </h3>
+                </footer>
+        </div>
+            
+    </div>
+
+
+
+<script src="/jquery/jquery-3.6.0.min.js"></script>
+<script src="/bootstrap-5.0.1-dist/js/bootstrap.min.js"></script>
+<script src="/js/app.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
+</body>
+</html>

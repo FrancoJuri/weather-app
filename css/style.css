@@ -1,0 +1,133 @@
+body{
+    margin: 0px;
+    padding: 0px;
+    background-color: #100E1D !important;
+}
+
+h1{
+    text-align: center;
+    color: white !important;
+    font-size: 40px !important;
+}
+
+.container{
+    display: flex;
+    height: 90vh;
+}
+
+#form{
+    flex-flow: column wrap;
+    width: 73%;
+    margin: 0px auto;
+    background-color: #1E213A;
+    padding: 30px;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    height: auto;
+}
+
+input{
+    width: 90% !important;
+    padding: 15px !important;
+    font-size: 30px !important;
+    transition: all 300ms !important;
+    text-transform: capitalize;
+}
+
+button{
+    width: 60%;
+    font-size: 28px !important;
+    transition: all 300ms !important;
+}
+
+footer{
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+footer h2{
+    color: #E7E7EB !important;
+    font-family: 'Quicksand';
+    text-align: center;
+}
+
+#div-alerts{
+    display: flex;
+    flex-flow: row wrap;
+    position: relative;
+    top: 0;
+    width: 100%;
+}
+
+.alert{
+    animation: animation-alert 400ms ease;
+    width: 100%;
+    border-radius: 0px !important;
+    padding-top: 20px;
+    padding-bottom: 5px !important;
+    transition: all 300ms !important;
+}
+
+@keyframes animation-alert {
+    from{
+        transform: translateY(-130px);
+    } 
+    to{
+        transform: translateY(0px);
+    }
+}
+
+.animation-eliminate-alert{
+    animation: animation-eliminate-alert 400ms ease;
+}
+
+@keyframes animation-eliminate-alert {
+    from{
+        transform: translateY(0px);
+    } to{
+        transform: translateY(-130px);
+    }
+}
+
+.alert p {
+    font-size: 20px;
+}
+
+.alert button{
+    font-size: 25px;
+}
+
+@media(max-width: 500px){
+
+    #form{
+        width: 90%;
+    }
+
+    h1{
+        font-size: 33px !important;
+    }
+
+}
+
+@media(max-width: 370px){
+
+    #form{
+        width: 95%;
+    }
+
+    h1{
+        font-size: 28px !important;
+    }
+
+    input{
+        width: 100% !important;
+    }
+    
+    footer{
+        bottom: 0px !important;
+    }
+}

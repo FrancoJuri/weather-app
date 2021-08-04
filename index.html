@@ -1,0 +1,35 @@
+<script>if(localStorage.getItem('city') !== null)window.location.href = 'weather.html';</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Franco Juri | Weather App</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="./bootstrap-5.0.1-dist/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
+    <link rel="icon" href="cloud_107348.png" type="image/png">
+</head>
+<body>
+
+    <div id="div-alerts"></div>
+
+    <div class="container">
+        <form class="d-flex rounded py-5" id="form" autocomplete="off">
+            <h1>Type your city and I will show the currently weather</h1>
+            <input class="form-control mt-4" type="text" placeholder="E.g. London" aria-label="Search" id="city">
+            <button class="btn btn-outline-success mt-3" type="submit" id="button-submit">Submit</button>
+        </form>
+    </div>
+
+    <footer>
+        <h2>Created by Franco Juri with ❤</h2>
+    </footer>
+
+<script src="/js/localStorage.js" type="module" defer></script>
+<script src="/bootstrap-5.0.1-dist/js/bootstrap.min.js"></script>
+</body>
+</html>
