@@ -108,7 +108,7 @@ function printAlert(msg){
 
 async function consultAPI(el, unit){
     try {
-        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${el}&units=${unit}&appid=e2fd362b98bcf31009363518aedbff0b`);
+        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${el}&units=${unit}&appid=${mykey}`);
         const result = await response.json();
         if(Number(result.cod) === 404){
             printAlert('No results found');

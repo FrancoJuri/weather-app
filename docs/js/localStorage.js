@@ -17,8 +17,7 @@ function validateForm(e){
 
 async function consultarAPI(el){
     try {
-        const key = 'e2fd362b98bcf31009363518aedbff0b';
-        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${el}&appid=${key}`);
+        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${el}&appid=${mykey}`);
         if(response.status === 404){
             printAlert('No city found', city);
             return;
