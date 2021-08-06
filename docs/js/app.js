@@ -123,9 +123,10 @@ async function consultAPI(el, unit){
 }   
 
 function showHTML(el){
+    console.log(el);
     const dateToday = moment().format('ddd, DD MMM');
     const temperatureUnit = document.querySelector('.select-unit');
-    const { main: {temp, temp_max, temp_min, humidity, pressure}, name, visibility, wind: {speed}, weather } = el;
+    const { main: {temp, temp_max, temp_min, humidity, feels_like}, name, visibility, wind: {speed}, weather } = el;
     const [weatherInfo] = weather;
     const { main, description, icon } = weatherInfo;
     iconFavicon.href = `https://openweathermap.org/img/wn/${icon}@2x.png`;
@@ -145,14 +146,14 @@ function showHTML(el){
     `
 
     highlightsSection.innerHTML = `
-        <div class='wind-speed box-highlight p-4 ms-5'>
-            <h3>Wind speed</h3>
-            <span class='mt-4'></span>
+        <div class='feels-like box-highlight p-4 ms-5'>
+            <h3>Feels Like</h3>
+            <span class='mt-4'>${feels_like} ${temperatureUnit.textContent}</span>
         </div>
 
         <div class='humidity-speed box-highlight p-4 ms-5'>
             <h3>Humidity</h3>
-            <span class='humidity'>${humidity}<span>%</span></span>
+            <span class='humidity mt-4'>${humidity}<span>%</span></span>
         </div>
 
         <div class='visibility box-highlight p-4 ms-5'>
@@ -160,27 +161,27 @@ function showHTML(el){
             <span class='mt-4'>${visibility} M</span>
         </div>
 
-        <div class='air-pressure box-highlight p-4 ms-5'>
-            <h3>Air Pressure</h3>
-            <span class='mt-4'>${pressure} hPa</span>
+        <div class='wind-speed box-highlight p-4 ms-5'>
+            <h3>Wind speed</h3>
+            <span class='mt-4'></span>
         </div>
 
     `
 
     if(temperatureUnit.value === 'imperial'){
-        document.querySelector('.wind-speed span').textContent = `${speed} Miles`
+        document.querySelector('.wind-speed span').textContent = `${speed} Miles`;
     } else{
-        document.querySelector('.wind-speed span').textContent = `${speed} M/S`
+        document.querySelector('.wind-speed span').textContent = `${speed} M/S`;
     }
 
     if(window.matchMedia("(max-width: 817px)").matches){
-        document.querySelector('.wind-speed').classList.remove('ms-5');
+        document.querySelector('.feels-like').classList.remove('ms-5');
         document.querySelector('.visibility').classList.remove('ms-5');
     }
     
     if(window.matchMedia("(max-width: 628px)").matches){
         document.querySelector('.humidity-speed').classList.remove('ms-5');
-        document.querySelector('.air-pressure').classList.remove('ms-5');
+        document.querySelector('.wind-speed').classList.remove('ms-5');
     }
 
 }

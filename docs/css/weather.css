@@ -423,6 +423,10 @@ footer h3{
         flex-flow: column wrap !important;
     }
 
+    .box-highlight span{
+        font-size: 50px !important;
+    }
+
     #left{
         width: 100%;
     }
@@ -510,5 +514,11 @@ footer h3{
     footer h3{
         text-align: center;
         margin-top: 50px;
+    }
+}
+
+@media(max-width: 923px){
+    .box-highlight span{
+        font-size: 35px;
     }
 }
