@@ -1,3 +1,5 @@
+var mykey = config.MY_KEY;
+
 let city = localStorage.getItem('city');
 const title = document.querySelector('.title');
 const btnClose = document.getElementById('btn-close');

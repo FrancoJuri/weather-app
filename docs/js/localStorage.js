@@ -1,3 +1,4 @@
+var mykey = config.MY_KEY;
 const form = document.getElementById('form');
 const city = document.getElementById('city');
 const divAlerts = document.getElementById('div-alerts');
