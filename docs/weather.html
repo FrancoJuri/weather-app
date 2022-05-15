@@ -17,7 +17,7 @@
 <body>
     
 
-    <div class="container-principal">
+    <div class="principal-container">
         <section id="left">
             <div id="search-container">
                 <span id='btn-close'>
@@ -25,7 +25,7 @@
                 </span>
                 <form id="search-form" class="d-flex mb-3" autocomplete="off">
                     <input type="text" class="me-2" id="city-search-input" placeholder="Search location">
-                    <button type="submit">Search</button>
+                    <button class="quicksand-font" type="submit">Search</button>
                 </form>
                 <div id="div-alerts">Type a location to search</div>
 
@@ -45,28 +45,33 @@
                 </div>
                 
     
-                <button id="change-default-city">Change default city</button>
+                <div class="change-default-city-container">
+                    <button id="change-default-city" class="quicksand-font">Change default city</button>
+                </div>
                 
             </div> 
-            <button id="search-more" class="mt-4 p-2">Search for places</button>
-            <div id="weather-section">
+            <button id="search-more" class="mt-5 p-2 quicksand-font fadeIn">Search for places</button>
+            <div id="weather-section" class="fadeIn">
                 
             </div>
         </section>
         
-        <div>
+        <div class="fadeIn right">
             <div class="temperature-unit d-flex mt-5">
                 <button class="unit" id="celsius" value="metric">°C</button>
                 <button class="unit" id="fahrenheit" value="imperial">°F</button>
             </div>
 
-                <h3 class="text-center text-white highlights-title">Today's Highlights</h3>
-                <div id="highlights-section">
+                <h3 class="text-center px-3 text-white highlights-title fadeIn">Today's Highlights</h3>
+
+                <div class="highlights-section-container">
+                    <div id="highlights-section">
                       
+                    </div>
                 </div>
              
-                <footer> 
-                    <h3> Created by Franco Juri with ❤ </h3>
+                <footer class="p-2 mt-5"> 
+                    <h3 class="text-center"> Created by Franco Juri with ❤ </h3>
                 </footer>
         </div>
             
@@ -75,7 +80,6 @@
 
 <script src="./jquery/jquery-3.6.0.min.js"></script>
 <script src="./bootstrap-5.0.1-dist/js/bootstrap.min.js"></script>
-<script type='text/javascript' src='config.js'></script>
 <script src="./js/app.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
 </body>

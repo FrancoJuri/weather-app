@@ -1,4 +1,3 @@
-var mykey = config.MY_KEY;
 const form = document.getElementById('form');
 const city = document.getElementById('city');
 const divAlerts = document.getElementById('div-alerts');
@@ -18,7 +17,7 @@ function validateForm(e){
 
 async function consultarAPI(el){
     try {
-        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${el}&appid=${mykey}`);
+        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${el}&appid=173c4a48cfee7abb5936238f695fa821`);
         if(response.status === 404){
             printAlert('No city found', city);
             return;

@@ -1,5 +1,3 @@
-var mykey = config.MY_KEY;
-
 let city = localStorage.getItem('city');
 const title = document.querySelector('.title');
 const btnClose = document.getElementById('btn-close');
@@ -110,7 +108,7 @@ function printAlert(msg){
 
 async function consultAPI(el, unit){
     try {
-        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${el}&units=${unit}&appid=${mykey}`);
+        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${el}&units=${unit}&appid=173c4a48cfee7abb5936238f695fa821`);
         const result = await response.json();
         if(Number(result.cod) === 404){
             printAlert('No results found');
@@ -125,7 +123,6 @@ async function consultAPI(el, unit){
 }   
 
 function showHTML(el){
-    console.log(el);
     const dateToday = moment().format('ddd, DD MMM');
     const temperatureUnit = document.querySelector('.select-unit');
     const { main: {temp, temp_max, temp_min, humidity, feels_like}, name, visibility, wind: {speed}, weather } = el;
@@ -148,42 +145,36 @@ function showHTML(el){
     `
 
     highlightsSection.innerHTML = `
-        <div class='feels-like box-highlight p-4 ms-5'>
-            <h3>Feels Like</h3>
-            <span class='mt-4'>${feels_like} ${temperatureUnit.textContent}</span>
+        <div class='feels-like box-highlight p-5'>
+            <h3 class='text-center'>Feels Like</h3>
+            <div class='d-flex justify-content-center align-items-center gap-1 flex-wrap'>
+                <span class='principal-span'>${feels_like}</span> <span>${temperatureUnit.textContent}</span>
+            </div>
         </div>
 
-        <div class='humidity-speed box-highlight p-4 ms-5'>
-            <h3>Humidity</h3>
-            <span class='humidity mt-4'>${humidity}<span>%</span></span>
+        <div class='humidity-speed box-highlight p-5'>
+            <h3 class='text-center'>Humidity</h3>
+            <span class='principal-span text-center'>${humidity}<span>%</span></span>
         </div>
 
-        <div class='visibility box-highlight p-4 ms-5'>
-            <h3>Visibility</h3>
-            <span class='mt-4'>${visibility} M</span>
+        <div class='visibility box-highlight p-5'>
+            <h3 class='text-center'>Visibility</h3>
+            <div class='d-flex justify-content-center align-items-center gap-1 flex-wrap'>
+                <span class='principal-span'>${visibility}</span> <span>M</span>
+            </div>
         </div>
 
-        <div class='wind-speed box-highlight p-4 ms-5'>
-            <h3>Wind speed</h3>
-            <span class='mt-4'></span>
+        <div class='wind-speed box-highlight p-5'>
+            <h3 class='text-center'>Wind speed</h3>
+            <div class='d-flex justify-content-center align-items-center gap-1 flex-wrap'></div>
         </div>
 
     `
 
     if(temperatureUnit.value === 'imperial'){
-        document.querySelector('.wind-speed span').textContent = `${speed} Miles`;
+        document.querySelector('.wind-speed div').innerHTML = `<span class='principal-span'>${speed}</span> <span>Miles</span>`;
     } else{
-        document.querySelector('.wind-speed span').textContent = `${speed} M/S`;
-    }
-
-    if(window.matchMedia("(max-width: 817px)").matches){
-        document.querySelector('.feels-like').classList.remove('ms-5');
-        document.querySelector('.visibility').classList.remove('ms-5');
-    }
-    
-    if(window.matchMedia("(max-width: 628px)").matches){
-        document.querySelector('.humidity-speed').classList.remove('ms-5');
-        document.querySelector('.wind-speed').classList.remove('ms-5');
+        document.querySelector('.wind-speed div').innerHTML = `<span class='principal-span'>${speed}</span> <span>M/S</span>`;
     }
 
 }

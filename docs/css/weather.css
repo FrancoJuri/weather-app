@@ -10,11 +10,11 @@
     font-style: normal;
 }
 
-
 body{
     margin: 0px;
     padding: 0px;
     scroll-behavior: smooth;
+    overflow-y: hidden;
 }
 
 :root{
@@ -24,7 +24,23 @@ body{
     --grey-color: #6E707A;
 }
 
-.container-principal{
+.fadeIn{
+    animation: fadeIn 900ms forwards;
+}
+
+@keyframes fadeIn {
+    from{
+        opacity: 0;
+    } to{
+        opacity: 1;
+    }
+}
+
+.quicksand-font{
+    font-family: 'Quicksand', Arial, Helvetica, sans-serif;
+}
+
+.principal-container{
     display: flex;
     flex-flow: row wrap;
     background-color: var(--primary-color);
@@ -32,12 +48,26 @@ body{
 
 #left{
     display: flex;
-    flex-flow: column wrap;
+    flex-flow: column nowrap;
     align-items: center;
     background-color: var(--secondary-color);
     height: 100vh;
     width: 32vw;
-    overflow-y: var(--secondary-color);
+    overflow: auto;
+}
+
+#left::-webkit-scrollbar{
+    width: 8px;
+    background: #2a2e33;
+}
+
+#left::-webkit-scrollbar-thumb{
+    background: #aaaaaa;
+    border-radius: 6px;
+}
+
+#left::-webkit-scrollbar-thumb:hover{
+    background: #717171;
 }
 
 #search-more{ 
@@ -59,14 +89,8 @@ body{
     cursor: pointer;
 }
 
-.contenedor{
-    width: 100%;
-    background-color: var(--primary-color);
-}
-
 #search-container{
-    display: none;
-    flex-flow: column wrap;
+    flex-flow: column nowrap;
     align-items: center;
     margin: 0px auto !important;
     transition: all 450ms ease;
@@ -76,6 +100,10 @@ body{
     z-index: 1;
     background-color: var(--secondary-color);
 } 
+
+.change-default-city-container{
+    padding-bottom: 20px;
+}
 
 form{
     width: 100%;
@@ -115,7 +143,7 @@ form button:hover{
 #btn-close{
     position: absolute;
     top: 15px;
-    right: 40px;
+    right: 45px;
     color: var(--white-color);
     font-size: 24px;
     cursor: pointer;
@@ -124,7 +152,6 @@ form button:hover{
 #div-alerts{
     color: var(--white-color) !important;
 }
-
 
 .cities-recomendation{
     display: flex;
@@ -145,7 +172,6 @@ form button:hover{
 .cities-recomendation span{
     font-family: 'WebSymbolsRegular' !important;
     font-size: 20px;
-    margin-top: 20px;
     margin: 0px auto;
     margin-right: 10px;
     color: var(--white-color);
@@ -185,6 +211,8 @@ form button:hover{
     display: flex;
     flex-flow: column wrap;
     align-items: center;
+    padding-bottom: 30px;
+    gap: 65px;
 }
 
 .weather-icon{
@@ -193,7 +221,6 @@ form button:hover{
 }
 
 #weather-section h2{
-    margin-top: 60px;
     font-family: 'Changa One', sans-serif;
     font-size: 48px !important;
     color: white !important;
@@ -209,12 +236,15 @@ form button:hover{
     font-size: 43px;
     color: var(--white-color);
     font-family: 'Quicksand', sans-serif;
-    margin-top: 60px;
+   
 }
 
 .min-max{
+    justify-content: center;
+    align-items: center;
     flex-flow: row wrap;
-    margin-top: 60px;
+    padding-right: 10px;
+    padding-left: 10px;
     gap: 40px;
 }
 
@@ -226,7 +256,6 @@ form button:hover{
 
 .date-div{
     flex-flow: row wrap;
-    margin-top: 60px;
     gap: 15px;
 }
 
@@ -238,8 +267,9 @@ form button:hover{
 
 .ubication-div{
     flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
     gap: 25px;
-    margin-top: 3rem;
 }
 
 .ubication-div .ubication-icon{
@@ -252,6 +282,26 @@ form button:hover{
     font-size: 30px;
     text-transform: capitalize;
     color: var(--white-color);
+}
+
+.right{
+    width: 68vw;
+    height: 100vh;
+    overflow: auto;
+}
+
+.right::-webkit-scrollbar{
+    width: 9px;
+    background: #2a2e33;
+}
+
+.right::-webkit-scrollbar-thumb{
+    background: #aaaaaa;
+    border-radius: 6px;
+}
+
+.right::-webkit-scrollbar-thumb:hover{
+    background: #717171;
 }
 
 .temperature-unit{
@@ -281,12 +331,17 @@ form button:hover{
     background-color: var(--white-color);
 }
 
+.highlights-section-container{
+    min-height: calc(100vh - 1.2rem - 45.59px - 3rem - 0.5rem - 50px - 3rem - 110px);
+}
+
 #highlights-section{
     display: grid;
     grid-template-columns: 35% 35%;
     justify-content: center;
     width: 100%;
-    margin-top: 3rem;
+    margin-top: 2.2rem;
+    gap: 35px;
 }
 
 .highlights-title{
@@ -297,31 +352,38 @@ form button:hover{
 
 .box-highlight{
     background-color: var(--secondary-color);
-    margin-top: 20px;
     display: flex;
     flex-flow: column wrap;
     align-items: center;
+    justify-content: center;
 }
 
 .box-highlight h3{
     color: var(--white-color);
     font-family: 'Quicksand';
+    font-size: 30px;
 }
 
-.box-highlight .humidity{
+.box-highlight .principal-span{
+    font-family: 'Changa One', sans-serif;
     color: var(--white-color);
-    font-family: 'Quicksand';
-    font-weight: bold !important;
-    font-size: 70px;
+    font-weight: lighter;
+    font-size: 55px;
 }
 
 .box-highlight span{
-    font-family: 'Quicksand';
+    font-family: 'Quicksand', Arial, Helvetica, sans-serif;
     color: var(--white-color);
     font-weight: lighter;
-    font-size: 45px;
+    font-size: 35px;
 }
 
+footer{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
 
 footer h3{
     color: var(--white-color);
@@ -329,106 +391,107 @@ footer h3{
     font-size: 25px;
 }
 
+/* width media queries */
 
-@media(max-width: 1631px){
+@media(max-width: 1600px){
     #highlights-section{
-        grid-template-columns: 45% 45%;
+        grid-template-columns: 40% 40%;
+    }
+
+    .box-highlight .principal-span{
+        font-size: 45px;
+    }
+    
+    .box-highlight span{
+        font-size: 30px;
+    }
+
+    #btn-close{
+        right: 25px;
     }
 }
 
-@media(min-width: 801px){
-    footer{
-        display: flex;
-        justify-content: center;
-        width: 68vw;
-        position: absolute;
-        bottom: 0;
-    }
-}
-
-@media(max-height: 563px){
-    .cities-recomendation{
-        margin-top: 15px;
-        padding: 7px;
-    }
-}
-
-@media(min-height: 677px){
+@media(max-width: 1320px){
     .min-max{
         flex-direction: column !important;
-        margin-top: 20px !important;
-        gap: 5px;
+    }
+}
+
+@media(max-width: 1220px){
+    .ubication-div{
+        gap: 15px;
     }
 
-    .date-div{
-        margin-top: 20px !important;
+    .ubication-div span{
+        font-size: 20px;
+    }
+    
+    .ubication-icon{
+        font-size: 30px !important;
+    }
+}
+
+@media(max-width: 1100px){
+    #search-container input{
+        width: 60% !important;
     }
 
-    #weather-section h3{
-        margin-top: 20px !important;
+    #btn-close{
+        right: 20px;
+    }
+}
+
+@media(max-width: 1000px){
+    #highlights-section{
+        grid-template-columns: 80%;
     }
 
     #weather-section h2{
-        margin-top: 20px !important;
+        font-size: 43px !important;
     }
 
-    #search-more{
-        margin-bottom: 20px;
-    }
-
-    .ubication-div{
-        margin-top: 25px;
-    }
-}
-
-
-@media (min-width: 801px) and (max-height: 741px) {
-    .min-max{
-        flex-direction: column !important;
-        margin-top: 10px !important;
-        gap: 5px;
-    }
-
-    .date-div{
-        margin-top: 10px !important;
+    #weather-section h2 span{
+        font-size: 30px;
     }
 
     #weather-section h3{
-        margin-top: 10px !important;
+        font-size: 35px;
     }
 
-    #weather-section h2{
-        margin-top: 10px !important;
-    }
-
-    #search-more{
-        margin-bottom: 10px;
-    }
-
-    #highlights-section{
-        margin-top: 0rem;
-    }
-
-    .highlights-title{
-        margin-top: 0px;
+    .min-max p{
+        font-size: 25px;
     }
 
     .ubication-div{
-        margin-top: 5px;
+        gap: 10px;
     }
+
+    .ubication-icon{
+        font-size: 20px !important;
+    }
+    
 }
 
 @media(max-width: 800px){
-    .container-principal{
-        flex-flow: column wrap !important;
+    body{
+        overflow-y: scroll;
     }
 
-    .box-highlight span{
-        font-size: 50px !important;
+    .principal-container{
+        flex-direction: column wrap !important;
     }
 
     #left{
         width: 100%;
+        min-height: 100vh;
+        height: 100%;
+        overflow-y: hidden;
+    }
+
+    .right{
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
     }
 
     .temperature-unit{
@@ -436,89 +499,101 @@ footer h3{
         justify-content: center;
     }
 
-    #highlights-section{
-        padding-bottom: 50px;
-    }
-
-    footer{
-        position: relative;
-        bottom: 0;
-        padding-bottom: 10px;
-    }
-
-    footer h3{
-        text-align: center;
-    }
-
     .min-max{
-        flex-direction: column !important;
-        margin-top: 5px !important;
-        gap: 5px;
-    }
-
-    .date-div{
-        margin-top: 5px !important;
-    }
-
-    #weather-section h3{
-        margin-top: 5px !important;
+        flex-direction: row !important;
     }
 
     #weather-section h2{
-        margin-top: 5px !important;
+        font-family: 'Changa One', sans-serif;
+        font-size: 48px !important;
+        color: white !important;
+    }
+    
+    #weather-section h2 span{
+        font-size: 35px;
+    }
+    
+    #weather-section h3{
+        font-size: 43px;
     }
 
-    #search-more{
-        margin-bottom: 5px;
+    .min-max p{
+        font-size: 30px;
     }
 
     .ubication-div{
-        margin-top: 10px;
+        gap: 25px;
     }
+    
+    .ubication-div .ubication-icon{
+        font-size: 30px !important;
+    }
+    
+    .ubication-div span{
+        font-size: 30px;
+    }
+
+    #search-container{
+        overflow: auto;
+    }
+
+    #search-container::-webkit-scrollbar{
+        width: 8px;
+        background: #2a2e33;
+    }
+    
+    #search-container::-webkit-scrollbar-thumb{
+        background: #aaaaaa;
+        border-radius: 6px;
+    }
+    
+    #search-container::-webkit-scrollbar-thumb:hover{
+        background: #717171;
+    }
+
 }
 
-
-@media(max-width: 950px){
-    #search-container input{
-        width: 60% !important;
-    }
-}
-
-@media(max-width: 1200px){
-    .min-max{
-        flex-direction: column !important;
-        margin-top: 30px;
+@media(max-width: 394px){
+    #weather-section h2{
+        font-size: 43px !important;
     }
 
-    .date-div{
-        margin-top: 30px;
+    #weather-section h2 span{
+        font-size: 30px;
     }
 
     #weather-section h3{
-        margin-top: 30px;
-    }
-
-    #weather-section h2{
-        margin-top: 30px;
-    }
-}
-
-@media(max-width: 628px){
-    #highlights-section{
-        display: grid;
-        grid-template-columns: 90%;
-        justify-content: center;
-        width: 100%;
-    }
-
-    footer h3{
-        text-align: center;
-        margin-top: 50px;
-    }
-}
-
-@media(max-width: 923px){
-    .box-highlight span{
         font-size: 35px;
+    }
+
+    .min-max p{
+        font-size: 25px;
+    }
+
+    .ubication-div{
+        gap: 10px;
+    }
+
+    .ubication-div span{
+        font-size: 20px !important;
+    }
+
+    .ubication-div .ubication-icon{
+        font-size: 25px !important;
+    }
+}
+
+@media(max-width: 285px){
+    #highlights-section .box-highlight{
+        padding: 30px !important;
+    }
+}
+
+
+/* height media queries */
+
+@media(max-height: 823px){
+    #weather-section{
+        gap: 50px;
     }
 }
